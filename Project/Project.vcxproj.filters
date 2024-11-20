@@ -140,6 +140,9 @@
     <ClInclude Include="TopDownCapy.h">
       <Filter>Demo Files</Filter>
     </ClInclude>
+    <ClInclude Include="PlatformCapy.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Shader.cpp">
@@ -254,6 +257,9 @@
       <Filter>Demo Files</Filter>
     </ClCompile>
     <ClCompile Include="TopDownCapy.cpp">
+      <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformCapy.cpp">
       <Filter>Demo Files</Filter>
     </ClCompile>
   </ItemGroup>

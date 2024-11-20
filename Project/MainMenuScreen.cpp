@@ -42,7 +42,7 @@ void Engine::MainMenuScreen::Init()
 	game->GetInputManager()->AddInputMapping("next", SDLK_DOWN)
 		->AddInputMapping("prev", SDLK_UP)
 		->AddInputMapping("press", SDLK_RETURN)
-		->AddInputMapping("press", SDLK_SPACE);
+		->AddInputMapping("press", SDLK_j);
 
 }
 
@@ -76,7 +76,7 @@ void Engine::MainMenuScreen::Update()
 		b->SetButtonState(Engine::ButtonState::PRESS);
 		// If play button then go to InGame, exit button then exit
 		if ("play" == b->GetButtonName()) {
-			ScreenManager::GetInstance(game)->SetCurrentScreen("ingame");
+			ScreenManager::GetInstance(game)->SetCurrentScreen("platformLevel");
 		}
 		else if ("exit" == b->GetButtonName()) {
 			game->SetState(Engine::State::EXIT);
