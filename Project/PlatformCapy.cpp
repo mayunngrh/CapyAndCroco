@@ -1,10 +1,14 @@
 #include "PlatformCapy.h"
+#include <iomanip>
+#include <sstream> 
 
 using namespace Engine;
 
-PlatformCapy::PlatformCapy(Setting* setting)
+PlatformCapy::PlatformCapy(Setting* setting, float time)
 {
 	setting->windowTitle = "Platform Capy";
+	gameSetting = setting;
+	timeScore = time;
 }
 
 
@@ -24,7 +28,7 @@ void PlatformCapy::Init()
 {
 	// 1
 	Texture* platformTexture = new Texture("platforms8.png");
-	vec2 start = vec2(300, 120);
+	vec2 start = vec2(270, 160);
 	int tilesPerPlatform = 5; // Number of tiles to repeat per platform section
 
 	for (int i = 0; i < 3; i++) {
@@ -44,13 +48,13 @@ void PlatformCapy::Init()
 	vec2 start2 = vec2(100, 250);
 	int tilesPerPlatform2 = 3; // Number of tiles to repeat per platform section
 
-	for (int i = 0; i < 2; i++) {
+	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < tilesPerPlatform2; j++) {
 			float platformWidth = 32; // Set to the width of your platform texture
 			float platformHeight = 32; // Set to the height of your platform texture
 			Sprite* platformTile2 = new Sprite(platformTexture2, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
 			platformTile2->SetSize(platformWidth, platformHeight)
-				->SetPosition(start2.x + i * 900 + j * platformWidth, start2.y + i * -100);
+				->SetPosition(start2.x + i * 480 + j * platformWidth, start2.y + i * 0);
 			platformTile2->SetBoundingBoxSize(platformTile2->GetScaleWidth(), platformTile2->GetScaleHeight());
 			platforms.push_back(platformTile2);
 		}
@@ -93,7 +97,7 @@ void PlatformCapy::Init()
 	//5
 	Texture* platformTexture5 = new Texture("platforms8.png");
 	vec2 start5 = vec2(830, 420);
-	int tilesPerPlatform5 = 1; // Number of tiles to repeat per platform section
+	int tilesPerPlatform5 = 2; // Number of tiles to repeat per platform section
 
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < tilesPerPlatform5; j++) {
@@ -175,6 +179,142 @@ void PlatformCapy::Init()
 		}
 	}
 
+	//10
+	Texture* platformTexture10 = new Texture("platforms8.png");
+	vec2 start10 = vec2(200, 600);
+	int tilesPerPlatform10 = 2; // Number of tiles to repeat per platform section
+
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < tilesPerPlatform10; j++) {
+			float platformWidth = 32; // Set to the width of your platform texture
+			float platformHeight = 32; // Set to the height of your platform texture
+			Sprite* platformTile10 = new Sprite(platformTexture10, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
+			platformTile10->SetSize(platformWidth, platformHeight)
+				->SetPosition(start10.x + i * 170 + j * platformWidth, start10.y + i * 20);
+			platformTile10->SetBoundingBoxSize(platformTile10->GetScaleWidth(), platformTile10->GetScaleHeight());
+			platforms.push_back(platformTile10);
+		}
+	}
+
+	//11
+	Texture* platformTexture11 = new Texture("platforms8.png");
+	vec2 start11 = vec2(1000, 70);
+	int tilesPerPlatform11 = 2; // Number of tiles to repeat per platform section
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < tilesPerPlatform11; j++) {
+			float platformWidth = 32; // Set to the width of your platform texture
+			float platformHeight = 32; // Set to the height of your platform texture
+			Sprite* platformTile11 = new Sprite(platformTexture11, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
+			platformTile11->SetSize(platformWidth, platformHeight)
+				->SetPosition(start11.x + i * 150 + j * platformWidth, start11.y + i * 10);
+			platformTile11->SetBoundingBoxSize(platformTile11->GetScaleWidth(), platformTile11->GetScaleHeight());
+			platforms.push_back(platformTile11);
+		}
+	}
+
+	//12
+	Texture* platformTexture12 = new Texture("platforms8.png");
+	vec2 start12 = vec2(1230, 170);
+	int tilesPerPlatform12 = 3; // Number of tiles to repeat per platform section
+
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < tilesPerPlatform12; j++) {
+			float platformWidth = 32; // Set to the width of your platform texture
+			float platformHeight = 32; // Set to the height of your platform texture
+			Sprite* platformTile12 = new Sprite(platformTexture12, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
+			platformTile12->SetSize(platformWidth, platformHeight)
+				->SetPosition(start12.x + i * 140 + j * platformWidth, start12.y + i * 30);
+			platformTile12->SetBoundingBoxSize(platformTile12->GetScaleWidth(), platformTile12->GetScaleHeight());
+			platforms.push_back(platformTile12);
+		}
+	}
+
+	//13
+	Texture* platformTexture13 = new Texture("platforms8.png");
+	vec2 start13 = vec2(1170, 320);
+	int tilesPerPlatform13 = 2; // Number of tiles to repeat per platform section
+
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < tilesPerPlatform13; j++) {
+			float platformWidth = 32; // Set to the width of your platform texture
+			float platformHeight = 32; // Set to the height of your platform texture
+			Sprite* platformTile13 = new Sprite(platformTexture13, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
+			platformTile13->SetSize(platformWidth, platformHeight)
+				->SetPosition(start13.x + i * 150 + j * platformWidth, start13.y + i * -30);
+			platformTile13->SetBoundingBoxSize(platformTile13->GetScaleWidth(), platformTile13->GetScaleHeight());
+			platforms.push_back(platformTile13);
+		}
+	}
+
+	//14
+	Texture* platformTexture14 = new Texture("platforms8.png");
+	vec2 start14 = vec2(1000, 390);
+	int tilesPerPlatform14 = 2; // Number of tiles to repeat per platform section
+
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < tilesPerPlatform14; j++) {
+			float platformWidth = 32; // Set to the width of your platform texture
+			float platformHeight = 32; // Set to the height of your platform texture
+			Sprite* platformTile14 = new Sprite(platformTexture14, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
+			platformTile14->SetSize(platformWidth, platformHeight)
+				->SetPosition(start14.x + i * 130 + j * platformWidth, start14.y + i * 40);
+			platformTile14->SetBoundingBoxSize(platformTile14->GetScaleWidth(), platformTile14->GetScaleHeight());
+			platforms.push_back(platformTile14);
+		}
+	}
+
+	//15
+	Texture* platformTexture15 = new Texture("platforms8.png");
+	vec2 start15 = vec2(1000, 580);
+	int tilesPerPlatform15 = 2; // Number of tiles to repeat per platform section
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < tilesPerPlatform15; j++) {
+			float platformWidth = 32; // Set to the width of your platform texture
+			float platformHeight = 32; // Set to the height of your platform texture
+			Sprite* platformTile15 = new Sprite(platformTexture15, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
+			platformTile15->SetSize(platformWidth, platformHeight)
+				->SetPosition(start15.x + i * 140 + j * platformWidth, start15.y + i * 10);
+			platformTile15->SetBoundingBoxSize(platformTile15->GetScaleWidth(), platformTile15->GetScaleHeight());
+			platforms.push_back(platformTile15);
+		}
+	}
+
+	//16
+	Texture* platformTexture16 = new Texture("platforms8.png");
+	vec2 start16 = vec2(1280, 700);
+	int tilesPerPlatform16 = 3; // Number of tiles to repeat per platform section
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < tilesPerPlatform16; j++) {
+			float platformWidth = 32; // Set to the width of your platform texture
+			float platformHeight = 32; // Set to the height of your platform texture
+			Sprite* platformTile16 = new Sprite(platformTexture16, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
+			platformTile16->SetSize(platformWidth, platformHeight)
+				->SetPosition(start16.x + i * -200 + j * platformWidth, start16.y + i * 5);
+			platformTile16->SetBoundingBoxSize(platformTile16->GetScaleWidth(), platformTile16->GetScaleHeight());
+			platforms.push_back(platformTile16);
+		}
+	}
+
+	//17
+	Texture* platformTexture17 = new Texture("platforms8.png");
+	vec2 start17 = vec2(150, 750);
+	int tilesPerPlatform17 = 3; // Number of tiles to repeat per platform section
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < tilesPerPlatform17; j++) {
+			float platformWidth = 32; // Set to the width of your platform texture
+			float platformHeight = 32; // Set to the height of your platform texture
+			Sprite* platformTile17 = new Sprite(platformTexture17, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
+			platformTile17->SetSize(platformWidth, platformHeight)
+				->SetPosition(start17.x + i * 250 + j * platformWidth, start17.y + i * 10);
+			platformTile17->SetBoundingBoxSize(platformTile17->GetScaleWidth(), platformTile17->GetScaleHeight());
+			platforms.push_back(platformTile17);
+		}
+	}
+
 	//Create background
 	Texture* bgTexture1 = new Texture("bg_fix.png");
 	backgroundSprite = (new Sprite(bgTexture1, game->GetDefaultSpriteShader(), game->GetDefaultQuad()))->SetSize((float)game->GetSettings()->screenWidth, (float)game->GetSettings()->screenHeight);
@@ -189,6 +329,17 @@ void PlatformCapy::Init()
 
 	monsterSprite->SetBoundingBoxSize(monsterSprite->GetScaleWidth() - (32 * monsterSprite->GetScale()),
 		monsterSprite->GetScaleHeight() - (32 * monsterSprite->GetScale()));
+
+
+	// init key
+	Texture* keyTexture = new Texture("key_sprite.png");
+	keySprite = new Sprite(keyTexture, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
+	keySprite->SetPosition(50, 750)->SetNumXFrames(3)->SetNumYFrames(3)->SetAnimationDuration(100)->SetScale(3.0f)
+		->AddAnimation("stay", 0, 6);
+
+	
+	keySprite->SetBoundingBoxSize(keySprite->GetScaleWidth() - (32 * keySprite->GetScale()),
+		keySprite->GetScaleHeight() - (32 * keySprite->GetScale()));
 
 	// This dot sprite is for visual debugging (to see the actual bounding box) 
 	dotTexture = new Texture("dot.png");
@@ -232,8 +383,8 @@ void PlatformCapy::Update()
 		game->SetState(State::EXIT);
 		return;
 	}
-
-
+	
+	keySprite->PlayAnim("stay");
 	monsterSprite->PlayAnim("idle");
 
 	// Move monster sprite using keyboard
@@ -300,9 +451,27 @@ void PlatformCapy::Update()
 		monsterSprite->PlayAnim("attack");
 	}
 
-	// Update monster sprite animation
-	monsterSprite->Update(game->GetGameTime());
+	//Time Text
+	timeScore += game->GetGameTime() / 1000;
 
+	// Konversi time menjadi string dengan 2 angka belakang koma
+	std::ostringstream timeStream;
+	timeStream << std::fixed << std::setprecision(2) << timeScore;
+
+	// Gunakan hasil stream sebagai text
+	text
+		->SetScale(1.0f)
+		->SetColor(255, 255, 255)
+		->SetPosition(0, game->GetSettings()->screenHeight - (text->GetFontSize() * text->GetScale()))
+		->SetText("Score = " + timeStream.str() + " second");
+
+	monsterSprite->Update(game->GetGameTime());
+	keySprite->Update(game->GetGameTime());
+
+	if (monsterSprite->GetBoundingBox()->CollideWith(keySprite->GetBoundingBox())) {
+		ScreenManager::GetInstance(game)->UpdateScreen("ingame", new TopDownCapy(gameSetting, timeScore));
+		ScreenManager::GetInstance(game)->SetCurrentScreen("ingame");
+	}
 	if (debug) {
 		//Shape for debug
 		BoundingBox* bb = monsterSprite->GetBoundingBox();
@@ -326,6 +495,8 @@ void PlatformCapy::Draw()
 		s->Draw();
 	}
 	monsterSprite->Draw();
+	keySprite->Draw();
+
 
 	if (debug) {
 		dotSprite1->Draw();

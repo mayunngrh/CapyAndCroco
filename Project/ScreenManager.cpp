@@ -29,11 +29,36 @@ Engine::ScreenManager* Engine::ScreenManager::AddScreen(string name, Screen* scr
 	return this;
 }
 
+Engine::ScreenManager* Engine::ScreenManager::UpdateScreen(string name, Screen* screen) {
+    if (screen == nullptr) {
+        std::cerr << "Error: Cannot update screen. Screen is nullptr." << std::endl;
+        return this;
+    }
+
+    auto it = screens.find(name);
+    if (it != screens.end()) {
+        delete it->second;  
+        it->second = screen;  
+    }
+    else {
+        screens.insert(std::make_pair(name, screen));
+    }
+
+    screen->SetGame(engine);  
+    screen->Init();         
+
+    return this;
+}
+
+
+
+
 Engine::ScreenManager* Engine::ScreenManager::SetCurrentScreen(string name)
 {
 	this->currentScreen = screens[name];
 	return this;
 }
+
 
 Engine::Screen* Engine::ScreenManager::GetCurrentScreen()
 {

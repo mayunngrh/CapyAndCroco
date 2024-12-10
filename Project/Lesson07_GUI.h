@@ -16,7 +16,8 @@ namespace Engine {
 		~Lesson07_GUI();
 		virtual void Init();
 		virtual void Update();
-		virtual void Render();	
+		virtual void Render();
+		float timeScore = 0;
 	};
 }
 

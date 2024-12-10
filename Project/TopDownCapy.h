@@ -12,11 +12,12 @@
 #include "ScreenManager.h"
 #include "Music.h"
 #include "Sound.h"
+#include "PlatformCapy.h"
 
 namespace Engine {
 	class TopDownCapy : public Engine::Screen {
 	public:
-		TopDownCapy(Setting* setting);
+		TopDownCapy(Setting* setting, float time);
 		~TopDownCapy();
 		virtual void Init();
 		virtual void Update();
@@ -25,6 +26,8 @@ namespace Engine {
 		Texture* dotTexture = NULL;
 		vector<Sprite*> platforms;
 		Sprite* capySprite = NULL;
+		Sprite* caveSprite = NULL;
+		Sprite* crocoSprite = NULL;
 		Sprite* backgroundSprite = NULL;
 		Sprite* dotSprite1 = NULL;
 		Sprite* dotSprite2 = NULL;
@@ -32,9 +35,14 @@ namespace Engine {
 		Sprite* dotSprite4 = NULL;
 		Music* music = NULL;;
 		Sound* sound = NULL;
+		Text* timeText = NULL;
 		Text* text = NULL;
+		Setting* gameSetting = NULL;
+		float timeScore = 0;
 		float yVelocity = 0, gravity = 0;
 		bool jump = false, debug = false;
+		bool getKey = false; string currentText = "";
+		float textTime = 0;
 	};
 }
 
