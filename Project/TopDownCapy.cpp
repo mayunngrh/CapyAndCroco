@@ -299,7 +299,7 @@ void TopDownCapy::Update() {
 	timeText
 		->SetScale(1.0f)
 		->SetColor(255, 255, 255)
-		->SetPosition(0, game->GetSettings()->screenHeight - (text->GetFontSize() * text->GetScale()))
+		->SetPosition(gameSetting->screenWidth - 550, game->GetSettings()->screenHeight - (text->GetFontSize() * text->GetScale()))
 		->SetText("Score = " + timeStream.str() + " second");
 
 	// Update monster sprite animation
