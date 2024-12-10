@@ -13,7 +13,7 @@ void Engine::Lesson07_GUI::Init()
 {
 
 
-	Engine::ScreenManager::GetInstance(this)->AddScreen("ingame", new TopDownCapy(setting,timeScore))
+	Engine::ScreenManager::GetInstance(this)->AddScreen("ingame", new TopDownCapy(setting,timeScore,0,0,false))
 		->AddScreen("platformLevel", new PlatformCapy(setting,timeScore))
 		->AddScreen("mainmenu", new MainMenuScreen())->SetCurrentScreen("mainmenu");
 	

@@ -1,9 +1,13 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   TopDownCapy.cpp
-D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(67,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(67,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(253,74): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(253,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(70,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(70,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(87,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(87,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(272,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(272,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(278,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(278,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 SOIL.lib(SOIL.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code

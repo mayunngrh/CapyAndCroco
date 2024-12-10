@@ -469,7 +469,7 @@ void PlatformCapy::Update()
 	keySprite->Update(game->GetGameTime());
 
 	if (monsterSprite->GetBoundingBox()->CollideWith(keySprite->GetBoundingBox())) {
-		ScreenManager::GetInstance(game)->UpdateScreen("ingame", new TopDownCapy(gameSetting, timeScore));
+		ScreenManager::GetInstance(game)->UpdateScreen("ingame", new TopDownCapy(gameSetting, timeScore,200,770,true));
 		ScreenManager::GetInstance(game)->SetCurrentScreen("ingame");
 	}
 	if (debug) {

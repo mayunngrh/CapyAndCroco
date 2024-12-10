@@ -4,10 +4,13 @@
 
 using namespace Engine;
 
-TopDownCapy::TopDownCapy(Setting* setting, float time){
+TopDownCapy::TopDownCapy(Setting* setting, float time, int xPos, int yPos, bool getKey){
 	setting->windowTitle = "Top Down Level Capy";
 	gameSetting = setting;
 	timeScore = time;
+	xCapy = xPos;
+	yCapy = yPos;
+	isGetKey = getKey;
 
 }
 
@@ -81,7 +84,7 @@ void TopDownCapy::Init() {
 	//INIT CAPY
 	Texture* capyTexture = new Texture("capy_sprite.png");
 	capySprite = new Sprite(capyTexture, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
-	capySprite->SetPosition(0, 0)->SetNumXFrames(7)->SetNumYFrames(3)->SetAnimationDuration(100)->SetScale(0.4f)
+	capySprite->SetPosition(xCapy, yCapy)->SetNumXFrames(7)->SetNumYFrames(3)->SetAnimationDuration(100)->SetScale(0.4f)
 		->AddAnimation("idle", 0, 4)
 		->AddAnimation("walk", 5, 9)
 		->AddAnimation("walk_down", 10, 14)
@@ -157,7 +160,15 @@ void TopDownCapy::Update() {
 
 
 	capySprite->PlayAnim("idle");
-	crocoSprite->PlayAnim("close");
+
+	if (isCrocoSave) {
+		crocoSprite->PlayAnim("open");
+
+	}
+	else {
+		crocoSprite->PlayAnim("close");
+
+	}
 
 
 	// Move monster sprite using keyboard
@@ -228,7 +239,6 @@ void TopDownCapy::Update() {
 
 		if (game->GetInputManager()->IsKeyPressed("Jump")) {
 			ScreenManager::GetInstance(game)->UpdateScreen("platformLevel", new PlatformCapy(gameSetting, timeScore));
-			getKey = true;
 			ScreenManager::GetInstance(game)->SetCurrentScreen("platformLevel");
 		}
 
@@ -256,19 +266,22 @@ void TopDownCapy::Update() {
 		y = oldMonsterPos.y;
 		capySprite->SetPosition(x, y);
 
-		if (game->GetInputManager()->IsKeyPressed("Jump") && !getKey) {
+		if (game->GetInputManager()->IsKeyPressed("Jump") && !isGetKey) {
 			// Display the elapsed time on the screen
 			text->SetText("Please Get Key First!")
 				->SetPosition(gameSetting->screenWidth / 2, gameSetting->screenHeight / 2);
 			currentText = "Please Get Key First";
 		}
 
-		if (game->GetInputManager()->IsKeyPressed("Jump") && getKey) {
-			text->SetText("YOU SAVE CROCO");
+		if (game->GetInputManager()->IsKeyPressed("Jump") && isGetKey) {
+			text->SetText("YOU SAVE CROCO")
+				->SetPosition(gameSetting->screenWidth / 2, gameSetting->screenHeight / 2);
 			crocoSprite->PlayAnim("open");
 			currentText = "YOU SAVE CROCO";
+			isCrocoSave = true;
 		}
 	}
+
 
 
 	if (game->GetInputManager()->IsKeyPressed("Attack")) {

@@ -17,7 +17,7 @@
 namespace Engine {
 	class TopDownCapy : public Engine::Screen {
 	public:
-		TopDownCapy(Setting* setting, float time);
+		TopDownCapy(Setting* setting, float time, int xPos, int yPos, bool getKey);
 		~TopDownCapy();
 		virtual void Init();
 		virtual void Update();
@@ -41,8 +41,9 @@ namespace Engine {
 		float timeScore = 0;
 		float yVelocity = 0, gravity = 0;
 		bool jump = false, debug = false;
-		bool getKey = false; string currentText = "";
-		float textTime = 0;
+		bool isGetKey = false; string currentText = "";
+		float textTime = 0; int xCapy = 0; int yCapy = 0;
+		bool isCrocoSave = false;
 	};
 }
 
