@@ -28,12 +28,15 @@ namespace Engine {
 		Sprite* capySprite = NULL;
 		Sprite* caveSprite = NULL;
 		Sprite* crocoSprite = NULL;
+		Sprite* keySprite = NULL;
+		Sprite* winSprite = NULL;
 		Sprite* backgroundSprite = NULL;
 		Sprite* dotSprite1 = NULL;
 		Sprite* dotSprite2 = NULL;
 		Sprite* dotSprite3 = NULL;
 		Sprite* dotSprite4 = NULL;
 		Music* music = NULL;;
+		Sound* winSound = NULL;;
 		Sound* sound = NULL;
 		Text* timeText = NULL;
 		Text* text = NULL;

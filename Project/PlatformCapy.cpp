@@ -366,7 +366,7 @@ void PlatformCapy::Init()
 
 	sound = (new Sound("jump.wav"))->SetVolume(0);
 
-	text = new Text("lucon.ttf", 45vv, game->GetDefaultTextShader());
+	text = new Text("lucon.ttf", 45, game->GetDefaultTextShader());
 	text->SetScale(1.0f)->SetColor(255, 255, 255)->SetPosition(0, game->GetSettings()->screenHeight - (text->GetFontSize() * text->GetScale()));
 
 	//Set the background color

@@ -111,6 +111,14 @@ void TopDownCapy::Init() {
 	crocoSprite->SetBoundingBoxSize(crocoSprite->GetScaleWidth() - (16 * crocoSprite->GetScale()),
 		crocoSprite->GetScaleHeight() - (16 * crocoSprite->GetScale()));
 
+	//INIT GetKEyFirst
+	Texture* keyTexture = new Texture("keyFirst.png");
+	keySprite = new Sprite(keyTexture, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
+	keySprite->SetPosition(0, 0)->SetNumXFrames(1)->SetNumYFrames(1)->SetAnimationDuration(100)->SetScale(0)
+		->AddAnimation("getKeyFirst", 0, 0);
+
+
+
 
 
 	// This dot sprite is for visual debugging (to see the actual bounding box) 
@@ -137,7 +145,12 @@ void TopDownCapy::Init() {
 	// Playing music
 	music = (new Music("capyBackgroundMusic.ogg"))->SetVolume(40)->Play(true);
 
+	// Playing music
+	//winMusic = (new Music("win_level.ogg"))->SetVolume(40)->Play(false);
+
 	sound = (new Sound("jump.wav"))->SetVolume(100);
+
+	winSound = (new Sound("win_level.ogg"))->SetVolume(100);
 
 	text = new Text("lucon.ttf", 45, game->GetDefaultTextShader());
 
@@ -160,9 +173,13 @@ void TopDownCapy::Update() {
 
 
 	capySprite->PlayAnim("idle");
+	keySprite->PlayAnim("getKeyFirst");
 
 	if (isCrocoSave) {
 		crocoSprite->PlayAnim("open");
+		winSound->Play(true);
+		music->Play(false);
+		//winMusic->Play(true);
 
 	}
 	else {
@@ -259,6 +276,7 @@ void TopDownCapy::Update() {
 			textTime = 0;          // Reset timer
 			currentText = "";      // Clear the message
 			text->SetText("");     // Clear the displayed text
+			keySprite->SetScale(0);
 		}
 	}
 
@@ -268,8 +286,9 @@ void TopDownCapy::Update() {
 
 		if (game->GetInputManager()->IsKeyPressed("Jump") && !isGetKey) {
 			// Display the elapsed time on the screen
-			text->SetText("Please Get Key First!")
-				->SetPosition(gameSetting->screenWidth / 2, gameSetting->screenHeight / 2);
+			//text->SetText("Please Get Key First!")
+				//->SetPosition(gameSetting->screenWidth / 2, gameSetting->screenHeight / 2);
+			keySprite->SetScale(1.6f);
 			currentText = "Please Get Key First";
 		}
 
@@ -330,6 +349,7 @@ void TopDownCapy::Draw() {
 	capySprite->Draw();
 	caveSprite->Draw();
 	crocoSprite->Draw();
+	keySprite->Draw();
 
 	if (debug) {
 		dotSprite1->Draw();
