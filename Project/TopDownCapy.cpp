@@ -117,6 +117,12 @@ void TopDownCapy::Init() {
 	keySprite->SetPosition(0, 0)->SetNumXFrames(1)->SetNumYFrames(1)->SetAnimationDuration(100)->SetScale(0)
 		->AddAnimation("getKeyFirst", 0, 0);
 
+	//INIT GetKEyFirst
+	Texture* winTexture = new Texture("saveCroco.png");
+	winSprite = new Sprite(winTexture, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
+	winSprite->SetPosition(0, 0)->SetNumXFrames(1)->SetNumYFrames(1)->SetAnimationDuration(100)->SetScale(0)
+		->AddAnimation("win", 0, 0);
+
 
 
 
@@ -174,6 +180,8 @@ void TopDownCapy::Update() {
 
 	capySprite->PlayAnim("idle");
 	keySprite->PlayAnim("getKeyFirst");
+	winSprite->PlayAnim("win");
+
 
 	if (isCrocoSave) {
 		crocoSprite->PlayAnim("open");
@@ -277,6 +285,7 @@ void TopDownCapy::Update() {
 			currentText = "";      // Clear the message
 			text->SetText("");     // Clear the displayed text
 			keySprite->SetScale(0);
+			winSprite->SetScale(0);
 		}
 	}
 
@@ -293,9 +302,10 @@ void TopDownCapy::Update() {
 		}
 
 		if (game->GetInputManager()->IsKeyPressed("Jump") && isGetKey) {
-			text->SetText("YOU SAVE CROCO")
-				->SetPosition(gameSetting->screenWidth / 2, gameSetting->screenHeight / 2);
+			//text->SetText("YOU SAVE CROCO")
+				//->SetPosition(gameSetting->screenWidth / 2, gameSetting->screenHeight / 2);
 			crocoSprite->PlayAnim("open");
+			winSprite->SetScale(1.6f);
 			currentText = "YOU SAVE CROCO";
 			isCrocoSave = true;
 		}
@@ -350,6 +360,8 @@ void TopDownCapy::Draw() {
 	caveSprite->Draw();
 	crocoSprite->Draw();
 	keySprite->Draw();
+	winSprite->Draw();
+
 
 	if (debug) {
 		dotSprite1->Draw();

@@ -4,15 +4,15 @@ D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs
 D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(70,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(87,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(87,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(297,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(297,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(321,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(306,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(306,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\KULIAH\SEMESTER\SEMESTER 7\Pemrograman Gim\0. PROJECT AKHIR (CAPY & CROCO)\vs\Project\TopDownCapy.cpp(331,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 SOIL.lib(SOIL.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  2 of 1202 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  3 of 1202 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    13 functions had inline decision re-evaluated but remain unchanged
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 SOIL.lib(image_DXT.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(image_DXT.obj)' or at ''; linking object as if no debug info
 SOIL.lib(image_helper.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(image_helper.obj)' or at ''; linking object as if no debug info
