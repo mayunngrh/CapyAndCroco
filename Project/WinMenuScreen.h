@@ -11,6 +11,7 @@
 #include "Sound.h"
 #include <vector>
 #include "ScreenManager.h"
+#include "TopDownCapy.h"
 
 namespace Engine {
 	class WinMenuScreen :
@@ -26,7 +27,7 @@ namespace Engine {
 		Text* text;
 		Sprite* backgroundSprite = NULL;
 		Sprite* starsSprite = NULL;
-		Sound* sound = NULL;
+		Sound* scoreSound = NULL;
 		float score = 0;
 		int currentButtonIndex = 0;
 	};

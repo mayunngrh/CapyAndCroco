@@ -1,6 +1,7 @@
 #include "WinMenuScreen.h"
 #include <iostream>
-#include <string>
+#include <sstream>
+#include <iomanip>
 
 
 Engine::WinMenuScreen::WinMenuScreen(Setting* setting, float time)
@@ -39,7 +40,7 @@ void Engine::WinMenuScreen::Init()
 		starsSprite = (new Sprite(starsTexture, game->GetDefaultSpriteShader(), game->GetDefaultQuad()))->SetSize((float)game->GetSettings()->screenWidth, (float)game->GetSettings()->screenHeight);
 	}
 	else if (score < 120) {
-		Texture* starsTexture = new Texture("3stars.png");
+		Texture* starsTexture = new Texture("1stars.png");
 		starsSprite = (new Sprite(starsTexture, game->GetDefaultSpriteShader(), game->GetDefaultQuad()))->SetSize((float)game->GetSettings()->screenWidth, (float)game->GetSettings()->screenHeight);
 	}else{
 		Texture* starsTexture = new Texture("nostars.png");
@@ -48,31 +49,39 @@ void Engine::WinMenuScreen::Init()
 
 	//Create Buttons
 	Button* playButton = new Button(playSprite, "play");
-	playButton->SetPosition((game->GetSettings()->screenWidth / 2) - (playSprite->GetScaleWidth() / 2),
-		300);
+	playButton->SetPosition((game->GetSettings()->screenWidth / 2 + 300) - (playSprite->GetScaleWidth() / 2),
+		250);
 	buttons.push_back(playButton);
 
 	Button* exitButton = new Button(exitSprite, "exit");
-	exitButton->SetPosition((game->GetSettings()->screenWidth / 2) - (exitSprite->GetScaleWidth() / 2),
-		200);
+	exitButton->SetPosition((game->GetSettings()->screenWidth / 2 + 300) - (exitSprite->GetScaleWidth() / 2),
+		150);
 	buttons.push_back(exitButton);
 
 	// Set play button into active button
 	currentButtonIndex = 0;
 	buttons[currentButtonIndex]->SetButtonState(Engine::ButtonState::HOVER);
 
-	std::string result = std::to_string(score) + " Second";
+	std::ostringstream oss;
+	oss << std::fixed << std::setprecision(2) << score;
+	std::string result = oss.str() + " Second";
 	std::cout << result << std::endl;
 
 	// Create Text
 	text = (new Text("8-bit Arcade In.ttf", 100, game->GetDefaultTextShader()))
-		->SetText(result)->SetPosition(game->GetSettings()->screenWidth * 0.5f , game->GetSettings()->screenHeight - 500)->SetColor(0, 0, 0);
+		->SetText(result)->SetPosition(game->GetSettings()->screenWidth * 0.5f + 25 , game->GetSettings()->screenHeight - 500)->SetColor(0, 0, 0);
 
 	// Add input mappings
 	game->GetInputManager()->AddInputMapping("next", SDLK_DOWN)
 		->AddInputMapping("prev", SDLK_UP)
 		->AddInputMapping("press", SDLK_SPACE);
 
+	
+	if (score != 0) {
+		//add music
+		//scoreSound = (new Sound("score_level.ogg"))->SetVolume(40);
+		//scoreSound->Play(true);
+	}
 }
 
 
@@ -105,7 +114,7 @@ void Engine::WinMenuScreen::Update()
 		b->SetButtonState(Engine::ButtonState::PRESS);
 		// If play button then go to InGame, exit button then exit
 		if ("play" == b->GetButtonName()) {
-			ScreenManager::GetInstance(game)->SetCurrentScreen("ingame");
+			ScreenManager::GetInstance(game)->UpdateScreen("ingame", new TopDownCapy(game->GetSettings(), 0, 0, 0, false))->SetCurrentScreen("ingame");
 		}
 		else if ("exit" == b->GetButtonName()) {
 			game->SetState(Engine::State::EXIT);

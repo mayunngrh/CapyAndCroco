@@ -276,6 +276,10 @@ void TopDownCapy::Update() {
 		// Increment the elapsed time using the game's delta time
 		textTime += game->GetGameTime();
 
+		if (isCrocoSave) {
+			winSound->Play(true);
+		}
+
 		// Reset after 2 seconds (2000 milliseconds)
 		if (textTime >= 2000) {
 			textTime = 0;          // Reset timer
@@ -283,7 +287,8 @@ void TopDownCapy::Update() {
 			text->SetText("");     // Clear the displayed text
 			keySprite->SetScale(0);
 			winSprite->SetScale(0);
-			winSound->Play(false);
+			winSound->SetVolume(0);
+			music = (new Music("score_level.ogg"))->SetVolume(40)->Play(true);
 
 			if (isCrocoSave) {
 				ScreenManager::GetInstance(game)->SetCurrentScreen("winmenu");
@@ -310,8 +315,8 @@ void TopDownCapy::Update() {
 			winSprite->SetScale(1.6f);
 			currentText = "YOU SAVE CROCO";
 			isCrocoSave = true;
-			music->Play(false);
-			winSound->Play(true);
+			music = (new Music("win_level.ogg"))->SetVolume(30)->Play(true);
+			music->SetVolume(0);
 		}
 	}
 
