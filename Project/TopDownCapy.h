@@ -13,6 +13,7 @@
 #include "Music.h"
 #include "Sound.h"
 #include "PlatformCapy.h"
+#include "WinMenuScreen.h"
 
 namespace Engine {
 	class TopDownCapy : public Engine::Screen {

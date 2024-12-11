@@ -143,6 +143,9 @@
     <ClInclude Include="PlatformCapy.h">
       <Filter>Demo Files</Filter>
     </ClInclude>
+    <ClInclude Include="WinMenuScreen.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Shader.cpp">
@@ -260,6 +263,9 @@
       <Filter>Demo Files</Filter>
     </ClCompile>
     <ClCompile Include="PlatformCapy.cpp">
+      <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WinMenuScreen.cpp">
       <Filter>Demo Files</Filter>
     </ClCompile>
   </ItemGroup>

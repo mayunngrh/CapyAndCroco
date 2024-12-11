@@ -124,9 +124,6 @@ void TopDownCapy::Init() {
 		->AddAnimation("win", 0, 0);
 
 
-
-
-
 	// This dot sprite is for visual debugging (to see the actual bounding box) 
 	dotTexture = new Texture("dot.png");
 	dotSprite1 = new Sprite(dotTexture, game->GetDefaultSpriteShader(), game->GetDefaultQuad());
@@ -166,7 +163,7 @@ void TopDownCapy::Init() {
 	game->SetBackgroundColor(102, 195, 242);
 
 	// Set debug
-	debug = true;
+	debug = false;
 }
 
 void TopDownCapy::Update() {
@@ -185,8 +182,6 @@ void TopDownCapy::Update() {
 
 	if (isCrocoSave) {
 		crocoSprite->PlayAnim("open");
-		winSound->Play(true);
-		music->Play(false);
 		//winMusic->Play(true);
 
 	}
@@ -276,6 +271,8 @@ void TopDownCapy::Update() {
 
 	// If there is a message currently displayed
 	if (currentText != "") {
+		ScreenManager::GetInstance(game)->UpdateScreen("winmenu", new WinMenuScreen(gameSetting, timeScore));
+
 		// Increment the elapsed time using the game's delta time
 		textTime += game->GetGameTime();
 
@@ -286,6 +283,11 @@ void TopDownCapy::Update() {
 			text->SetText("");     // Clear the displayed text
 			keySprite->SetScale(0);
 			winSprite->SetScale(0);
+			winSound->Play(false);
+
+			if (isCrocoSave) {
+				ScreenManager::GetInstance(game)->SetCurrentScreen("winmenu");
+			}
 		}
 	}
 
@@ -308,6 +310,8 @@ void TopDownCapy::Update() {
 			winSprite->SetScale(1.6f);
 			currentText = "YOU SAVE CROCO";
 			isCrocoSave = true;
+			music->Play(false);
+			winSound->Play(true);
 		}
 	}
 

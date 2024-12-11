@@ -373,7 +373,7 @@ void PlatformCapy::Init()
 	game->SetBackgroundColor(102, 195, 242);
 
 	// Set debug
-	debug = true;
+	debug = false;
 }
 
 void PlatformCapy::Update()

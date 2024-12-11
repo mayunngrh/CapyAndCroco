@@ -7,6 +7,7 @@
 #include "InGameScreen.h"
 #include "TopDownCapy.h"
 #include "PlatformCapy.h"
+#include "WinMenuScreen.h"
 
 namespace Engine {
 	class Lesson07_GUI :public Engine::Game

@@ -183,6 +183,7 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TopDownCapy.h" />
     <ClInclude Include="Turtle.h" />
+    <ClInclude Include="WinMenuScreen.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
@@ -224,6 +225,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TopDownCapy.cpp" />
     <ClCompile Include="Turtle.cpp" />
+    <ClCompile Include="WinMenuScreen.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
